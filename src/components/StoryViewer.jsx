@@ -5,7 +5,7 @@ import { setActiveStoryIndex, setViewerOpen } from '@/redux/storySlice';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import axios from 'axios';
-
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 const StoryViewer = () => {
     const dispatch = useDispatch();
     const { isViewerOpen, viewingStories, activeStoryIndex } = useSelector(state => state.story);
