@@ -42,7 +42,7 @@ const StoryViewer = () => {
         const markAsViewed = async () => {
             try {
                 await axios.post(
-                    `https://euphora.onrender.com/api/v1/story/${stories[activeStoryIndex]._id}/view`,
+                    `${baseURL}/story/${stories[activeStoryIndex]._id}/view`,
                     {},
                     { withCredentials: true }
                 );
