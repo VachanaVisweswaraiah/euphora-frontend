@@ -8,7 +8,7 @@ const SearchPage = () => {
 
     const handleSearch = async () => {
         try {
-            const res = await axios.get(`https://euphora.onrender.com/api/v1/user/search?query=${searchTerm}`);
+            const res = await axios.get(`${baseURL}/user/search?query=${searchTerm}`);
             if (res.data.success) {
                 setSearchResults(res.data.results);
             }

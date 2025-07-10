@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 import { Link, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { useSelector } from 'react-redux';
-
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 const Signup = () => {
     const [input, setInput] = useState({
         username: "",
@@ -25,7 +25,7 @@ const Signup = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post('https://euphora.onrender.com/api/v1/user/register', input, {
+            const res = await axios.post(`${baseURL}/user/register`, input, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

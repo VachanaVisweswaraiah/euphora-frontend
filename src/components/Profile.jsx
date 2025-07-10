@@ -31,7 +31,7 @@ const Profile = () => {
 
     const handleFollow = async () => {
         try {
-            await axios.post(`https://euphora.onrender.com/follow/${userProfile?._id}`, {}, { withCredentials: true });
+            await axios.post(`${baseURL}/follow/${userProfile?._id}`, {}, { withCredentials: true });
             dispatch(followUser(userProfile?._id));
         } catch (error) {
             console.error("Follow error:", error);
@@ -40,7 +40,7 @@ const Profile = () => {
 
     const handleUnfollow = async () => {
         try {
-            await axios.post(`https://euphora.onrender.com/unfollow/${userProfile?._id}`, {}, { withCredentials: true });
+            await axios.post(`${baseURL}/unfollow/${userProfile?._id}`, {}, { withCredentials: true });
             dispatch(unfollowUser(userProfile?._id));
         } catch (error) {
             console.error("Unfollow error:", error);
@@ -49,7 +49,7 @@ const Profile = () => {
 
     const handleDeletePost = async (postId) => {
         try {
-            await axios.delete(`https://euphora.onrender.com/posts/${postId}`, { withCredentials: true });
+            await axios.delete(`${baseURL}/posts/${postId}`, { withCredentials: true });
             // Update the user profile after deletion
             useGetUserProfile(userId);
         } catch (error) {

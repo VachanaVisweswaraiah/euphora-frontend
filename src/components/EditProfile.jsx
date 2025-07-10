@@ -42,7 +42,7 @@ const EditProfile = () => {
         }
         try {
             setLoading(true);
-            const res = await axios.post('https://euphora.onrender.com/api/v1/user/profile/edit', formData,{
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/profile/edit`, formData,{
                 headers:{
                     'Content-Type':'multipart/form-data'
                 },

@@ -36,7 +36,7 @@ const CreateStory = ({ open, setOpen }) => {
 
         try {
             setLoading(true);
-            const res = await axios.post('https://euphora.onrender.com/api/v1/story/create', 
+            const res = await axios.post(`${baseURL}/story/create`, 
                 formData, 
                 {
                     headers: { 'Content-Type': 'multipart/form-data' },

@@ -29,7 +29,7 @@ const Login = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post('https://euphora.onrender.com/api/v1/user/login', input, {
+      const res = await axios.post(`${baseURL}/user/login`, input, {
         headers: {
           'Content-Type': 'application/json'
         },

@@ -10,7 +10,7 @@ import { toast } from 'sonner';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPosts } from '@/redux/postSlice';
-
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 const CreatePost = ({ open, setOpen }) => {
     const imageRef = useRef();
     const [file, setFile] = useState("");
@@ -27,7 +27,7 @@ const CreatePost = ({ open, setOpen }) => {
         // Fetch the daily post count for the user
         const fetchDailyPostCount = async () => {
             try {
-                const res = await axios.get(`https://euphora.onrender.com/api/v1/post/dailyPostCount`, { withCredentials: true });
+                const res = await axios.get(`${baseURL}/post/dailyPostCount`, { withCredentials: true });
                 if (res.data.success) {
                     setDailyPostCount(res.data.count);
                 }
@@ -51,7 +51,7 @@ const CreatePost = ({ open, setOpen }) => {
     const createPostHandler = async (e) => {
         // Fetch the latest daily post count to ensure accuracy
         try {
-            const res = await axios.get(`https://euphora.onrender.com/api/v1/post/dailyPostCount`, { withCredentials: true });
+            const res = await axios.get(`${baseURL}/post/dailyPostCount`, { withCredentials: true });
             if (res.data.success) {
                 setDailyPostCount(res.data.count);
             }

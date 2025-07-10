@@ -15,7 +15,7 @@ const StoriesContainer = () => {
     useEffect(() => {
         const fetchStories = async () => {
             try {
-                const res = await axios.get('https://euphora.onrender.com/api/v1/story/all', {
+                const res = await axios.get(`${baseURL}/story/all`, {
                     withCredentials: true
                 });
                 if (res.data.success) {
