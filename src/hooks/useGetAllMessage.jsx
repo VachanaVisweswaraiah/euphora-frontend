@@ -6,19 +6,26 @@ import { useDispatch, useSelector } from "react-redux";
 
 const useGetAllMessage = () => {
     const dispatch = useDispatch();
-    const {selectedUser} = useSelector(store=>store.auth);
+    const { selectedUser } = useSelector(store => store.auth);
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
+
     useEffect(() => {
         const fetchAllMessage = async () => {
             try {
-                const res = await axios.get(`https://euphora.onrender.com/api/v1/message/all/${selectedUser?._id}`, { withCredentials: true });
-                if (res.data.success) {  
+                const res = await axios.get(`${baseURL}/message/all/${selectedUser?._id}`, {
+                    withCredentials: true
+                });
+                if (res.data.success) {
                     dispatch(setMessages(res.data.messages));
                 }
             } catch (error) {
                 console.log(error);
             }
+        };
+        if (selectedUser?._id) {
+            fetchAllMessage();
         }
-        fetchAllMessage();
     }, [selectedUser]);
 };
+
 export default useGetAllMessage;
