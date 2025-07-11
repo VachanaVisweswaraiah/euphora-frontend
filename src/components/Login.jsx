@@ -9,6 +9,7 @@ import { Loader2 } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuthUser } from '@/redux/authSlice';
 import PopUp from './PopUp';
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const Login = () => {
   const [input, setInput] = useState({

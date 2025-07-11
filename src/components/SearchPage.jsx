@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const SearchPage = () => {
     const [searchTerm, setSearchTerm] = useState('');

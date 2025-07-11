@@ -9,6 +9,7 @@ import Comment from './Comment'
 import axios from 'axios'
 import { toast } from 'sonner'
 import { setPosts } from '@/redux/postSlice'
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const CommentDialog = ({ open, setOpen }) => {
   const [text, setText] = useState("");

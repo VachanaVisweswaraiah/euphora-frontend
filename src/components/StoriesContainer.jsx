@@ -5,6 +5,7 @@ import StoryCircle from './StoryCircle';
 import CreateStory from './CreateStory';
 import axios from 'axios';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const StoriesContainer = () => {
     const dispatch = useDispatch();

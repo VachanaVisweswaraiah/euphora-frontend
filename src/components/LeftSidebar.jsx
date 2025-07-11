@@ -10,6 +10,7 @@ import CreatePost from './CreatePost'
 import { setPosts, setSelectedPost } from '@/redux/postSlice'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { Button } from './ui/button'
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const LeftSidebar = () => {
     const navigate = useNavigate();

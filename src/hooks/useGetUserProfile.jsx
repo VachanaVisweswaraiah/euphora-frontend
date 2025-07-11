@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const useGetUserProfile = (userId) => {
     const dispatch = useDispatch();

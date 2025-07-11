@@ -9,6 +9,7 @@ import { AtSign, Heart, MessageCircle, Trash } from 'lucide-react';
 import { followUser, unfollowUser } from '@/redux/authSlice';
 import axios from 'axios';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogFooter, DialogTitle } from './ui/dialog';
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const Profile = () => {
     const params = useParams();

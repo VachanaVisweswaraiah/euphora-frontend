@@ -9,6 +9,7 @@ import { Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { setAuthUser } from '@/redux/authSlice';
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const EditProfile = () => {
     const imageRef = useRef();

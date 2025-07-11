@@ -8,6 +8,7 @@ import { MessageCircleCode } from 'lucide-react';
 import Messages from './Messages';
 import axios from 'axios';
 import { setMessages } from '@/redux/chatSlice';
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const ChatPage = () => {
     const [textMessage, setTextMessage] = useState("");
