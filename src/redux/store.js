@@ -6,37 +6,39 @@ import chatSlice from "./chatSlice.js";
 import rtnSlice from "./rtnSlice.js";
 import storySlice from "./storySlice.js";
 
-import { 
+import {
     persistReducer,
+    persistStore,
     FLUSH,
     REHYDRATE,
     PAUSE,
     PERSIST,
     PURGE,
     REGISTER,
-} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-
+// ✅ Only persist auth slice to avoid circular structure errors
 const persistConfig = {
     key: 'root',
     version: 1,
     storage,
-    blacklist: ['story']
-}
+    whitelist: ['auth']
+};
 
 const rootReducer = combineReducers({
-    auth:authSlice,
-    post:postSlice,
-    socketio:socketSlice,
-    chat:chatSlice,
-    realTimeNotification:rtnSlice,
+    auth: authSlice,
+    post: postSlice,
+    socketio: socketSlice,
+    chat: chatSlice,
+    realTimeNotification: rtnSlice,
     story: storySlice
-})
+});
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = configureStore({
+// ✅ Export both store and persistor
+export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -45,4 +47,5 @@ const store = configureStore({
             },
         }),
 });
-export default store;
+
+export const persistor = persistStore(store);
